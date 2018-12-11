@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class Audience {
-    @Pointcut("execution(public * com.springa.aop.concert.Performance.perform(..))")
+    @Pointcut("execution(public * com.springboot_aop.aop.concert.Performance.perform(..))")
     public void performance(){}
 
     @Before("performance()")
@@ -20,7 +20,7 @@ public class Audience {
     public void applause(){
         System.out.println("CALL CALL");
     }
-    @AfterThrowing("execution(public * com.springa.aop.concert.Performance.perform(..))")
+    @AfterThrowing("performance()")
     public void demandRefund(){
         System.out.println("Demanding a refund");
     }
